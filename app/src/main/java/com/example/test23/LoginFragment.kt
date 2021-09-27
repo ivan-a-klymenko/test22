@@ -1,14 +1,26 @@
 package com.example.test23
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import android.view.ViewGroup
 
 /**
  * @author ivan.a.klymenko@gmail.com on 21.09.2021
  */
-class LoginFragment : Fragment(R.layout.fragment_login) {
+private const val TAG = "LoginFragment"
+
+class LoginFragment : LogFragment() {
+
+    override fun getCurrentTag(): String = TAG
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_login, container, false)
+    }
 
 //    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 //        super.onViewCreated(view, savedInstanceState)
