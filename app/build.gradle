@@ -3,11 +3,11 @@ plugins {
     id 'kotlin-android'
 }
 
-def loadKeyProps = { filename ->
-    def props = new Properties()
-    props.load(new FileInputStream(rootProject.file(filename)))
-    return props
-}
+//def loadKeyProps = { filename ->
+//    def props = new Properties()
+//    props.load(new FileInputStream(rootProject.file(filename)))
+//    return props
+//}
 
 
 // Load the signing configuration from files in android-pwa-wrapper/
@@ -58,25 +58,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-//    flavorDimensions 'tablet'
-//    productFlavors {
-//        //  Base - Elo i2, Portwell
-//        base {
-//            dimension 'tablet'
-//        }
-//
-//        // DTR
-//        dtr {
-//            dimension 'tablet'
+    flavorDimensions 'tablet'
+    productFlavors {
+        //  Base - Elo i2, Portwell
+        base {
+            dimension 'tablet'
+        }
+
+        // DTR
+        dtr {
+            dimension 'tablet'
 //            signingConfig signingConfigs.dtr
-//        }
-//
-//        // ELO4
-//        elo4 {
-//            dimension 'tablet'
+        }
+
+        // ELO4
+        elo4 {
+            dimension 'tablet'
 //            signingConfig signingConfigs.elo4
-//        }
-//    }
+        }
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
