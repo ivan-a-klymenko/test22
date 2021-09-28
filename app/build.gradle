@@ -12,8 +12,8 @@ def loadKeyProps = { filename ->
 
 // Load the signing configuration from files in android-pwa-wrapper/
 def keyPropsBase = loadKeyProps("keystore-express-evolv.properties")
-def keyPropsDtr = loadKeyProps("keystore-express-dtr.properties")
-def keyPropsElo4 = loadKeyProps("keystore-express-elo-i4.properties")
+//def keyPropsDtr = loadKeyProps("keystore-express-dtr.properties")
+//def keyPropsElo4 = loadKeyProps("keystore-express-elo-i4.properties")
 
 android {
 
@@ -25,19 +25,19 @@ android {
             storePassword keyPropsBase['storePassword']
         }
 
-        dtr {
-            keyAlias keyPropsDtr['keyAlias']
-            keyPassword keyPropsDtr['keyPassword']
-            storeFile file(keyPropsDtr['storeFile'])
-            storePassword keyPropsDtr['storePassword']
-        }
-
-        elo4 {
-            keyAlias keyPropsElo4['keyAlias']
-            keyPassword keyPropsElo4['keyPassword']
-            storeFile file(keyPropsElo4['storeFile'])
-            storePassword keyPropsElo4['storePassword']
-        }
+//        dtr {
+//            keyAlias keyPropsDtr['keyAlias']
+//            keyPassword keyPropsDtr['keyPassword']
+//            storeFile file(keyPropsDtr['storeFile'])
+//            storePassword keyPropsDtr['storePassword']
+//        }
+//
+//        elo4 {
+//            keyAlias keyPropsElo4['keyAlias']
+//            keyPassword keyPropsElo4['keyPassword']
+//            storeFile file(keyPropsElo4['storeFile'])
+//            storePassword keyPropsElo4['storePassword']
+//        }
     }
 
     compileSdk 30
@@ -58,25 +58,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    flavorDimensions 'tablet'
-    productFlavors {
-        //  Base - Elo i2, Portwell
-        base {
-            dimension 'tablet'
-        }
-
-        // DTR
-        dtr {
-            dimension 'tablet'
-            signingConfig signingConfigs.dtr
-        }
-
-        // ELO4
-        elo4 {
-            dimension 'tablet'
-            signingConfig signingConfigs.elo4
-        }
-    }
+//    flavorDimensions 'tablet'
+//    productFlavors {
+//        //  Base - Elo i2, Portwell
+//        base {
+//            dimension 'tablet'
+//        }
+//
+//        // DTR
+//        dtr {
+//            dimension 'tablet'
+//            signingConfig signingConfigs.dtr
+//        }
+//
+//        // ELO4
+//        elo4 {
+//            dimension 'tablet'
+//            signingConfig signingConfigs.elo4
+//        }
+//    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
