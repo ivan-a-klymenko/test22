@@ -3,7 +3,43 @@ plugins {
     id 'kotlin-android'
 }
 
+def loadKeyProps = { filename ->
+    def props = new Properties()
+    props.load(new FileInputStream(rootProject.file(filename)))
+    return props
+}
+
+
+// Load the signing configuration from files in android-pwa-wrapper/
+def keyPropsBase = loadKeyProps("keystore-express-evolv.properties")
+def keyPropsDtr = loadKeyProps("keystore-express-dtr.properties")
+def keyPropsElo4 = loadKeyProps("keystore-express-elo-i4.properties")
+
 android {
+
+    signingConfigs {
+        base {
+            keyAlias keyPropsBase['keyAlias']
+            keyPassword keyPropsBase['keyPassword']
+            storeFile file(keyPropsBase['storeFile'])
+            storePassword keyPropsBase['storePassword']
+        }
+
+        dtr {
+            keyAlias keyPropsBase['keyAlias']
+            keyPassword keyPropsBase['keyPassword']
+            storeFile file(keyPropsBase['storeFile'])
+            storePassword keyPropsBase['storePassword']
+        }
+
+        elo4 {
+            keyAlias keyPropsBase['keyAlias']
+            keyPassword keyPropsBase['keyPassword']
+            storeFile file(keyPropsBase['storeFile'])
+            storePassword keyPropsBase['storePassword']
+        }
+    }
+
     compileSdk 30
 
     defaultConfig {
@@ -20,6 +56,25 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions 'tablet'
+    productFlavors {
+        //  Base - Elo i2, Portwell
+        base {
+            dimension 'tablet'
+        }
+
+        // DTR
+        dtr {
+            dimension 'tablet'
+            signingConfig signingConfigs.dtr
+        }
+
+        // ELO4
+        elo4 {
+            dimension 'tablet'
+            signingConfig signingConfigs.elo4
         }
     }
     compileOptions {

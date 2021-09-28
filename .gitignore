@@ -13,3 +13,10 @@
 .externalNativeBuild
 .cxx
 local.properties
+/keystore.properties
+/keystore-express-dtr.properties
+/keystore-express-elo-i3.properties
+/keystore-express-elo-i4.properties
+/keystore-express-evolv.properties
+/local.properties
+.jks
