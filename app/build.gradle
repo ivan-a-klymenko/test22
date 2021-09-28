@@ -26,17 +26,17 @@ android {
         }
 
         dtr {
-            keyAlias keyPropsBase['keyAlias']
-            keyPassword keyPropsBase['keyPassword']
-            storeFile file(keyPropsBase['storeFile'])
-            storePassword keyPropsBase['storePassword']
+            keyAlias keyPropsDtr['keyAlias']
+            keyPassword keyPropsDtr['keyPassword']
+            storeFile file(keyPropsDtr['storeFile'])
+            storePassword keyPropsDtr['storePassword']
         }
 
         elo4 {
-            keyAlias keyPropsBase['keyAlias']
-            keyPassword keyPropsBase['keyPassword']
-            storeFile file(keyPropsBase['storeFile'])
-            storePassword keyPropsBase['storePassword']
+            keyAlias keyPropsElo4['keyAlias']
+            keyPassword keyPropsElo4['keyPassword']
+            storeFile file(keyPropsElo4['storeFile'])
+            storePassword keyPropsElo4['storePassword']
         }
     }
 
