@@ -3,42 +3,42 @@ plugins {
     id 'kotlin-android'
 }
 
-//def loadKeyProps = { filename ->
-//    def props = new Properties()
-//    props.load(new FileInputStream(rootProject.file(filename)))
-//    return props
-//}
+def loadKeyProps = { filename ->
+    def props = new Properties()
+    props.load(new FileInputStream(rootProject.file(filename)))
+    return props
+}
 
 
 // Load the signing configuration from files in android-pwa-wrapper/
-//def keyPropsBase = loadKeyProps("keystore-express-evolv.properties")
-//def keyPropsDtr = loadKeyProps("keystore-express-dtr.properties")
-//def keyPropsElo4 = loadKeyProps("keystore-express-elo-i4.properties")
+def keyPropsBase = loadKeyProps("keystore-express-evolv.properties")
+def keyPropsDtr = loadKeyProps("keystore-express-dtr.properties")
+def keyPropsElo4 = loadKeyProps("keystore-express-elo-i4.properties")
 
 android {
 
-//    signingConfigs {
-//        base {
-//            keyAlias keyPropsBase['keyAlias']
-//            keyPassword keyPropsBase['keyPassword']
-//            storeFile file(keyPropsBase['storeFile'])
-//            storePassword keyPropsBase['storePassword']
-//        }
+    signingConfigs {
+        base {
+            keyAlias keyPropsBase['keyAlias']
+            keyPassword keyPropsBase['keyPassword']
+            storeFile file(keyPropsBase['storeFile'])
+            storePassword keyPropsBase['storePassword']
+        }
 
-//        dtr {
-//            keyAlias keyPropsDtr['keyAlias']
-//            keyPassword keyPropsDtr['keyPassword']
-//            storeFile file(keyPropsDtr['storeFile'])
-//            storePassword keyPropsDtr['storePassword']
-//        }
-//
-//        elo4 {
-//            keyAlias keyPropsElo4['keyAlias']
-//            keyPassword keyPropsElo4['keyPassword']
-//            storeFile file(keyPropsElo4['storeFile'])
-//            storePassword keyPropsElo4['storePassword']
-//        }
-//    }
+        dtr {
+            keyAlias keyPropsDtr['keyAlias']
+            keyPassword keyPropsDtr['keyPassword']
+            storeFile file(keyPropsDtr['storeFile'])
+            storePassword keyPropsDtr['storePassword']
+        }
+
+        elo4 {
+            keyAlias keyPropsElo4['keyAlias']
+            keyPassword keyPropsElo4['keyPassword']
+            storeFile file(keyPropsElo4['storeFile'])
+            storePassword keyPropsElo4['storePassword']
+        }
+    }
 
     compileSdk 30
 
@@ -68,13 +68,13 @@ android {
         // DTR
         dtr {
             dimension 'tablet'
-//            signingConfig signingConfigs.dtr
+            signingConfig signingConfigs.dtr
         }
 
         // ELO4
         elo4 {
             dimension 'tablet'
-//            signingConfig signingConfigs.elo4
+            signingConfig signingConfigs.elo4
         }
     }
     compileOptions {
