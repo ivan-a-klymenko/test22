@@ -11,14 +11,12 @@ def loadKeyProps = { filename ->
 
 
 // Load the signing configuration from files in android-pwa-wrapper/
-def keyPropsBase = loadKeyProps("keystore-express-evolv.properties")
-def keyPropsDtr = loadKeyProps("keystore-express-dtr.properties")
-def keyPropsElo4 = loadKeyProps("keystore-express-elo-i4.properties")
 
 android {
 
     signingConfigs {
         base {
+            def keyPropsBase = loadKeyProps("keystore-express-evolv.properties")
             keyAlias keyPropsBase['keyAlias']
             keyPassword keyPropsBase['keyPassword']
             storeFile file(keyPropsBase['storeFile'])
@@ -26,6 +24,7 @@ android {
         }
 
         dtr {
+            def keyPropsDtr = loadKeyProps("keystore-express-dtr.properties")
             keyAlias keyPropsDtr['keyAlias']
             keyPassword keyPropsDtr['keyPassword']
             storeFile file(keyPropsDtr['storeFile'])
@@ -33,6 +32,7 @@ android {
         }
 
         elo4 {
+            def keyPropsElo4 = loadKeyProps("keystore-express-elo-i4.properties")
             keyAlias keyPropsElo4['keyAlias']
             keyPassword keyPropsElo4['keyPassword']
             storeFile file(keyPropsElo4['storeFile'])
