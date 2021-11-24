@@ -40,12 +40,12 @@ android {
         }
     }
 
-    compileSdk 30
+    compileSdk 28
 
     defaultConfig {
         applicationId "com.example.test23"
         minSdk 21
-        targetSdk 30
+        targetSdk 27
         versionCode 1
         versionName "1.0"
 
